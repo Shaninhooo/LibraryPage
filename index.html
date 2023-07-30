@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        
+        <title>Document</title>
+        <script src="script.js" defer ></script>
+    </head>
+    <body>
+        <header>
+            <h1>Library</h1>
+        </header>
+
+        <main>
+            <button id="addBookBtn">Add Book</button>
+            <div class="library" id="booksGrid">
+            </div>
+        </main>
+
+        <div class="modal" id="addBookModal">
+            <form class="add-book-form" id="addBookForm">
+                <h3>Add New Book</h3>
+                <input
+                    class="input"
+                    type="text"
+                    id="title"
+                    placeholder="Title of Book"
+                    required
+                    maxlength="100" 
+                    />
+                <p class="error-msg" id="errorMsg"></p>
+                <input
+                    class="input"
+                    type="text"
+                    id="author"
+                    placeholder="Author"
+                    required
+                    maxlength="100" 
+                    />
+                    <input
+                    class="input"
+                    type="number"
+                    id="pages"
+                    placeholder="No. of Pages"
+                    required
+                    maxlength="10000" 
+                    />
+                    <div class="is-read">
+                        <label for="is-read">Have you read it?</label>
+                        <input type="checkbox" class="checkbox" id="isRead">
+                    </div>
+                    <button id="addInfo" type="submit">Submit</button>
+            </form>
+
+        </div>
+
+        <div id="overlay" class="overlay"></div>
+    </body>
+</html>
