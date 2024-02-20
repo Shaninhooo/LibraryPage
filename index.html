@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="style.css">
         
         <title>Document</title>
-        <script src="index.js" defer ></script>
     </head>
     <body>
         <header>
@@ -20,42 +19,43 @@
         </main>
 
         <div class="modal" id="addBookModal">
-            <form class="add-book-form" id="addBookForm">
+            <form class="add-book-form" id="addBookForm" novalidate>
                 <h3>Add New Book</h3>
                 <input
                     class="input"
                     type="text"
                     id="title"
-                    placeholder="Title of Book"
                     required
+                    placeholder="Title of Book"
                     maxlength="100" 
                     />
-                <p class="error-msg" id="errorMsg"></p>
+                <span id="errorTitle" aria-live="polite"></span>
                 <input
                     class="input"
                     type="text"
                     id="author"
-                    placeholder="Author"
                     required
+                    placeholder="Author"
                     maxlength="100" 
                     />
                     <input
                     class="input"
                     type="number"
                     id="pages"
-                    placeholder="No. of Pages"
                     required
+                    placeholder="No. of Pages"
                     maxlength="10000" 
                     />
                     <div class="is-read">
                         <label for="is-read">Have you read it?</label>
                         <input type="checkbox" class="checkbox" id="isRead">
                     </div>
-                    <button id="addInfo" type="submit">Submit</button>
+                    <button id="addInfo">Submit</button>
             </form>
 
         </div>
 
         <div id="overlay" class="overlay"></div>
+        <script src="index.js" defer ></script>
     </body>
 </html>
