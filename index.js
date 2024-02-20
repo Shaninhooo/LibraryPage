@@ -66,9 +66,6 @@ class Book {
     addBookModal.classList.remove("active");
     const overlay = document.getElementById("overlay");
     overlay.classList.remove("active");
-    const errorMsg = document.getElementById("errorMsg");
-    errorMsg.classList.remove("active");
-    errorMsg.textContent = "";
   };
   
   addNewBook(e) {  
@@ -134,9 +131,43 @@ class Book {
   const addBookBtn = document.getElementById("addBookBtn");
   addBookBtn.onclick = () => library.openAddBookModal();
   const addBookForm = document.getElementById("addBookForm");
-  addBookForm.addEventListener('submit', (e) => library.addNewBook(e));
   const overlay = document.getElementById("overlay");
   overlay.onclick = () => library.closeAddBookModal();
   
   // Small Effects
+  
+
+
+  // Validity
+  const form = document.querySelector("form");
+  const title = document.getElementById("title");
+  const errorTitle = document.getElementById("errorTitle");
+
+  title.addEventListener('input', (e) => {
+    if (!title.validity.valid) {
+      showTitleError();
+    } else {
+      clearTitleError();
+    }
+  });
+
+  function clearTitleError() {
+    errorTitle.textContent = "";
+  }
+
+  form.addEventListener('submit', (e) => {
+    
+    if(!title.validity.valid) {
+      showTitleError();
+      e.preventDefault();
+    } else {
+      library.addNewBook(e);
+    }
+  });
+  
+  function showTitleError() {
+    if(title.validity.valueMissing) {
+      errorTitle.textContent = "Title is required";
+    }
+  }
   
